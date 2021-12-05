@@ -6,12 +6,12 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public class ExchangeClient {
 
-    private static final String EXCHANGE_URL = "http://api.nbp.pl/api/exchangerates";
+    private static final String EXCHANGE_URL = "https://api.nbp.pl/api/exchangerates/tables/C/";
     private RestTemplate restTemplate = new RestTemplate();
 
-    public String getExchangeUSD( String code) {
-        return restTemplate.getForObject (EXCHANGE_URL + "/rates/C/{code}/last/6/",
-                String.class, code);
+    public String getExchangeCurrency(String code) {
+        return restTemplate.getForObject (EXCHANGE_URL,
+                String.class);
 
     }
 }
